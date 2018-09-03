@@ -43,7 +43,7 @@ int main()
 		cout << fixed;
 		cout << "Class A average is: " << setprecision(2) << avgA << endl;
 		cout << "Class B average is: " << setprecision(2) << avgB << endl;
-		cout << "Class B wins!" << endl;
+		cout << "Class B wins!";
 	}
 
 	return 0;
