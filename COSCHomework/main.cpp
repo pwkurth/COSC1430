@@ -1,6 +1,6 @@
 #include <iostream> 
 #include <stdlib.h>
-
+#include <iomanip>
 
 using namespace std;
 
@@ -34,17 +34,17 @@ int main()
 
 	}
 	if (avgA > avgB) {
-		cout << "Class A average is:" << avgA << endl;
-		cout << "Class B average is:" << avgB << endl;
+		cout << fixed;
+		cout << "Class A average is: " << setprecision(2) << avgA << endl;
+		cout << "Class B average is: " << setprecision(2) << avgB << endl;
 		cout << "Class A wins!" << endl;
 		}
 	else {
-		cout << "Class A average is:" << avgA << endl;
-		cout << "Class B average is:" << avgB << endl;
+		cout << fixed;
+		cout << "Class A average is: " << setprecision(2) << avgA << endl;
+		cout << "Class B average is: " << setprecision(2) << avgB << endl;
 		cout << "Class B wins!" << endl;
 	}
-	cout << avgB << endl;
-
 
 	return 0;
 }
