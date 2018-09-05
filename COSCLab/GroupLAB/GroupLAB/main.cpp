@@ -6,9 +6,11 @@ using namespace std;
 
 int main()
 {
-	const int size = 2;
-	int dArray[size];
-	int option;
+	int size = 2; 
+	int *dArray = new int[size]; ///Dybanic Array///
+	
+	
+	char option;
 	int element;
 
 
@@ -16,16 +18,41 @@ int main()
 	cout << "(p): Print elements" << endl;
 	cout << "(a): Add element" << endl;
 	cout << "(d): Delete element" << endl;
+	cout << "(r): Return size" << endl;
 	cout << "(e): Exit" << endl;
 
 	cout << "Enter option:";
 	cin >> option;
 
-	if (option != 'a') {
-		cout << "Enter a";
+	while(option != 'e') {
+		
+		cout << "(p): Print elements" << endl;
+		cout << "(a): Add element" << endl;
+		cout << "(d): Delete element" << endl;
+		cout << "(r): Return size" << endl;
+		cout << "(e): Exit" << endl;
+		
+		cout << "Enter option:";
+		cin >> option;
+		if (option == 'p') {
+
+			cout << "Enter element:";
+
+		}
+		else if (option == 'a');
+
+		else if (option == 'd');
+
+		else if (option == 'r');
+
+		else
+			cout << "Error";
 	}
+
+
 	
-	 ///Make sure to remove///
+	///Else statement///
+	system("PAUSE");
 
 	return 0;
 }
