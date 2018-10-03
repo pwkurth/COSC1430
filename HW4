@@ -1,0 +1,123 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class DynamicArray {
+private:
+	int *arr;
+	int arraySize;
+	int numOfElements;
+
+	DynamicArray(int arraySize) {
+		if (arraySize <= 1)
+			arr = new int[1];
+		else
+			arr = new int[arraySize];
+	}
+
+	DynamicArray(const DynamicArray &a) {
+		arr = new int[a.arraySize];
+		for (int i = 0; i <= a.numOfElements; i++) {
+			arr[i] = a.arr[i];
+		}
+		numOfElements = a.numOfElements;
+		arraySize = a.arraySize;
+	}
+public:
+	int getArraySize() {
+		return arraySize;
+	}
+	int getNumOfElements() {
+		return numOfElements;
+	}
+
+};
+
+string print() {
+	string answer = "";
+	for (int i = 0; i < numOfElements - 1; i++) {
+		answer += (arr[i] + '0');
+		answer += ',';
+	}
+	answer += (arr[numOfElements - 1] + '0');
+	return answer;
+}
+void addElement(int num) {
+	if (arraySize == numOfElements) {
+		int *temp = arr;
+		arr = new int[2 * arraySize];
+		for (int i = 0; i < numOfElements; i++) {
+			arr[i] = temp[i];
+		}
+		arr[numOfElements] = num;
+		arraySize = 2 * arraySize;
+		numOfElements++;
+		delete[] temp;
+	}
+}
+void deleteElement(int num) {
+	numOfElements--;
+	if(numOfElements <= (arraySize / 2)) {
+		int *temp = arr;
+		arr = new int[arraySize / 2];
+		int i = 0;
+		for (;i <= numOfElements; i++) {
+			if (temp[i] == num) {
+				i++;
+				break;
+			}
+			arr[i] = temp[i];
+		}
+		for (;i <= numOfElements; i++) {
+			arr[i-1] = temp[i];
+		}
+		arraySize = arraySize / 2;
+		delete[] temp;
+	}
+	else {
+		int *temp = arr;
+		arr = new int[arraySize];
+		int i = 0;
+		for(;i <= numOfElements; i++) {
+			if (temp[i] == num) {
+				i++;
+				break;
+			}
+			arr[i] = temp[i];
+		}
+		for (;i <= numOfElements; i++) {
+			arr[i - 1] = temp[i];
+		}
+		numOfElements--;
+	}
+}
+DynamicArray() {
+	delete[] arr;
+}
+void setArraySize(int array_size) {
+	if(array_size < numOfElements) {
+		return;
+	}
+	else {
+	}
+	numOfElements--;
+}
+}
+DynamicArray() {
+	delete[] arr;
+}
+void setArraySize(int array_size) {
+	if (array_size < numOfElements) {
+		return;
+	}
+	else {
+		int *temp = arr;
+		arr = new int[array_size];
+		for (int i = 0; i < numOfElements; i++) {
+			arr[i] = temp[i];
+		}
+		delete[] temp;
+	}
+	}
+}
